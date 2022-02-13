@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Страница расчета</title>
+  </head>
+  <body>
+    <form method="GET" action="{% url 'rn:npv' %}">
+      {% csrf_token %}
+      Год: <br />
+      <input type="integer" size="25" maxlength="30" value="2050" />
+      <br />
+      Коэффициент: <br />
+      <input type="float" size="25" maxlength="30" value="0.2" />
+      <br />
+      <button type="submit" class="btn btn-primary">Расчет</button>
+    </form>
+    <p>
+      {{ npv }}
+    </p>
+  </body>
+</html>
